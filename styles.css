@@ -145,7 +145,6 @@ h1 {
 }
 
 /* --- Compteur de vues (BLOC RETIRÉ) --- */
-/* Les styles du compteur ont été retirés pour simplifier */
 
 
 /* --- Contrôle de Volume (Barre de Curseur) --- */
@@ -261,38 +260,41 @@ h1 {
 
 @media (max-width: 600px) {
     
+    /* --- NOUVEAU : Correction de la Vidéo d'Arrière-plan pour le mobile --- */
+    #background-video {
+        /* Force la hauteur minimale à 100% de la hauteur de la fenêtre */
+        min-height: 100vh;
+        /* Assure que la vidéo couvre la zone d'affichage sans laisser de bords */
+        object-fit: cover; 
+        width: 100vw; 
+    }
+    
     /* --- Contenu Principal --- */
     .profile-container {
-        /* On retire les padding pour donner plus d'espace */
         padding: 10px;
-        /* Le contenu reste centré, mais on peut ajuster sa largeur maximale si besoin */
         max-width: 90%; 
     }
     
     /* --- Photo de Profil --- */
     .main-profile-picture {
-        /* Réduire la taille de la photo de profil */
         width: 90px; 
         height: 90px;
     }
     
     /* --- Titre H1 --- */
     h1 {
-        /* Réduire la taille du titre */
         font-size: 1.6em;
         margin-bottom: 10px;
     }
 
     /* --- Bannière Secondaire (Description) --- */
     .secondary-info-box {
-        /* Réduire l'espacement intérieur */
         padding: 6px 12px;
         margin-bottom: 15px;
     }
 
     /* --- Icônes de liens sociaux (Discord) --- */
     .social-links img {
-        /* Réduire légèrement la taille de l'icône */
         width: 30px;
         height: 30px;
         margin: 0 8px;
@@ -300,13 +302,11 @@ h1 {
     
     /* --- Contrôle de Volume --- */
     #volume-control-wrapper {
-        /* Le placer un peu plus près du bord */
         top: 15px;
         left: 15px;
         padding: 8px;
     }
     
-    /* S'assurer que le curseur ne soit pas trop long */
     #volume-slider {
         width: 80px; 
     }
