@@ -144,13 +144,7 @@ h1 {
     filter: drop-shadow(0 0 5px #00FFFF) drop-shadow(0 0 10px #00FFFF);
 }
 
-/* --- Compteur de vues (BLOC RETIRÉ) --- */
-
-
-/* ------------------------------------------- */
-/* Contrôle de Volume (Barre de Curseur)       */
-/* NOUVEAU : Application de l'animation neon-glow */
-/* ------------------------------------------- */
+/* --- Contrôle de Volume (Barre de Curseur) --- */
 
 #volume-control-wrapper {
     position: fixed;
@@ -158,7 +152,8 @@ h1 {
     left: 20px;
     z-index: 100;
     
-    background-color: rgba(50, 50, 50, 0.7); 
+    /* Légère modification du fond pour qu'il soit moins opaque */
+    background-color: rgba(30, 30, 30, 0.8); 
     backdrop-filter: blur(8px); 
     border-radius: 12px;
     padding: 10px; 
@@ -169,8 +164,9 @@ h1 {
     overflow: visible; 
     transition: width 0.5s, background-color 0.5s; 
     
-    /* EFFET NÉON AJOUTÉ ICI */
-    box-shadow: 0 0 5px #00FFFF, 0 0 10px rgba(0, 100, 255, 0.5); 
+    /* EFFET NÉON AJUSTÉ : Ombre plus forte pour qu'elle soit visible sur le fond sombre */
+    box-shadow: 0 0 10px #00FFFF, 
+                0 0 20px rgba(0, 100, 255, 0.7); 
     animation: neon-glow 2s infinite alternate;
 }
 
