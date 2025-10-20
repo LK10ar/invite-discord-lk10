@@ -12,17 +12,14 @@
 <body>
 
     <div id="cover-page">
-        <p>click pour entrée...</p>
+        <p>clique pour entrée...</p>
     </div>
 
     <video autoplay muted loop id="background-video">
-        <source src="images/edit.mp4" type="video/mp4">
+        <source src="images\edit.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la balise vidéo.
     </video>
     
-    <div class="audio-visualizer left-line"></div>
-    <div class="audio-visualizer right-line"></div>
-
     <div class="profile-container">
         
         <div class="main-profile-picture">
@@ -35,12 +32,12 @@
             <img src="images/ciné-lk10-logo-sans-fond.png" alt="Logo/GIF" class="secondary-logo">
             <div class="secondary-text">
                 <span class="secondary-pseudo">CINÉ LK10</span>
-                <span class="secondary-description">OPTÉ PC EN DM! 💻</span>
+                <span class="secondary-description">🎥 FILM•SÉRIE•ANIME ! 🎥</span>
             </div>
         </div>
         
         <div class="social-links">
-            <a href="https://discord.com/tonprofil" target="_blank">
+            <a href="https://discord.gg/79vmBkJnVA" target="_blank">
                 <img src="images/icons8-discorde-50.png" alt="Discord">
             </a>
         </div>
@@ -52,7 +49,7 @@
     </div>
 
     <audio id="background-audio" loop muted>
-        <source src="images/music.m4a" type="audio/mp3">
+        <source src="images\music.m4a" type="audio/mp3">
         Votre navigateur ne supporte pas la balise audio.
     </audio>
     
@@ -70,7 +67,7 @@
         const coverPage = document.getElementById('cover-page');
         const volumeMuteToggle = document.getElementById('volume-mute-toggle'); 
         const volumeSlider = document.getElementById('volume-slider');
-        const visualizers = document.querySelectorAll('.audio-visualizer'); // Récupère les deux lignes
+        // Les visualizers ne sont plus nécessaires : const visualizers = document.querySelectorAll('.audio-visualizer');
         
         // Chemins des icônes
         const ICON_ON = 'images/icons8-son-50.png';
@@ -84,10 +81,7 @@
         // **********************************
         
         function enterPage() {
-            // RENDRE LES LIGNES VISUELLES DE L'AUDIO VISIBLES (via classe CSS)
-            visualizers.forEach(el => {
-                el.classList.add('is-playing');
-            });
+            // La logique pour les visualizers est RETIRÉE ici
             
             // 1. Démarrer la musique
             audio.muted = false; 
@@ -163,6 +157,4 @@
         updateViewCounter();
     </script>
 </body>
-
 </html>
-
