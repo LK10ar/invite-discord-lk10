@@ -43,7 +43,7 @@
         </div>
 
         <div class="view-counter">
-            <span id="actual-view-count">Chargement...</span> 
+            <img src="https://hits.secrethub.io/viewcounter/view/lk10ar/mtzito_discord_lk10?style=flat-square" alt="Visiteurs" id="actual-view-count-badge">
         </div>
 
     </div>
@@ -68,21 +68,25 @@
         const volumeMuteToggle = document.getElementById('volume-mute-toggle'); 
         const volumeSlider = document.getElementById('volume-slider');
         
-        // Chemins des icônes JS : CORRIGÉS
+        // Chemins des icônes
         const ICON_ON = 'images/icons8-son-50.png';
         const ICON_MUTE = 'images/icons8-mute-50.png';
         
         audio.volume = 0.5; 
         let lastVolume = 0.5;
         
-        // ... (Logique d'entrée et de volume inchangée) ...
+        // **********************************
+        // 1. GESTION DE L'ENTRÉE ET DE L'AUDIO
+        // **********************************
         
         function enterPage() {
+            // 1. Démarrer la musique
             audio.muted = false; 
             audio.play().catch(error => {
                 console.log("Échec du lancement audio après le clic.");
             });
             
+            // 2. Masquer la page de couverture
             coverPage.style.opacity = '0';
             setTimeout(() => {
                 coverPage.style.display = 'none';
@@ -95,12 +99,18 @@
         coverPage.addEventListener('click', enterPage);
         coverPage.addEventListener('touchstart', enterPage);
         
+        // **********************************
+        // 2. GESTION DU VOLUME ET DU MUTE
+        // **********************************
         
         volumeSlider.addEventListener('input', (e) => {
             const newVolume = parseFloat(e.target.value);
             audio.volume = newVolume;
+            
             audio.muted = false;
+            
             volumeMuteToggle.src = newVolume > 0 ? ICON_ON : ICON_MUTE;
+            
             lastVolume = newVolume;
         });
 
@@ -118,31 +128,7 @@
             }
         });
 
-        // **********************************
-        // GESTION DU COMPTEUR DE VUES (API CountAPI)
-        // **********************************
-
-        // Clé unique (inchangée) :
-        const uniqueKey = 'lk10ar_mtzito_discord_lk10'; 
-        const countApiUrl = `https://api.countapi.xyz/hit/${uniqueKey}/views`;
-        
-        async function updateViewCounter() {
-            const viewCounterElement = document.getElementById('actual-view-count');
-            if (!viewCounterElement) return;
-
-            try {
-                const response = await fetch(countApiUrl);
-                const data = await response.json();
-                
-                viewCounterElement.textContent = `👁️ ${data.value}`; 
-                
-            } catch (error) {
-                console.error('Erreur lors de la mise à jour du compteur de vues:', error);
-                viewCounterElement.textContent = '👁️ Erreur API';
-            }
-        }
-
-        updateViewCounter();
+        // La section 3 (gestion du compteur de vues) est retirée du JavaScript
     </script>
 </body>
 </html>
