@@ -44,8 +44,6 @@ body {
     object-fit: cover;
 }
 
-/* Les styles des visualisations audio ont été RETIRÉS ICI */
-
 /* --- Contenu Principal Centré --- */
 .profile-container {
     position: absolute;
@@ -146,19 +144,28 @@ h1 {
     filter: drop-shadow(0 0 5px #00FFFF) drop-shadow(0 0 10px #00FFFF);
 }
 
-/* --- Compteur de vues --- */
+/* --- Compteur de vues (MODIFIÉ POUR LE BADGE) --- */
 .view-counter {
     position: relative; 
     margin-top: 30px;
+    
+    /* Pour centrer le badge horizontalement sous les liens */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
 
-#actual-view-count {
-    color: #00FFFF;
-    font-size: 1.2em;
-    text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF;
+#actual-view-count-badge { /* Cible la nouvelle image/badge */
+    /* Applique l'effet néon au badge */
+    filter: drop-shadow(0 0 2px #00FFFF) drop-shadow(0 0 5px rgba(0, 100, 255, 0.5)); 
+    
+    /* Rendre le badge plus visible / ajuster sa taille si besoin */
+    height: 20px; 
+    
+    /* Correction de la position pour qu'elle soit sous la zone principale */
     position: absolute;
     bottom: -50px;
-    left: -100px;
+    
 }
 
 /* --- Contrôle de Volume (Barre de Curseur) --- */
@@ -267,5 +274,3 @@ h1 {
         box-shadow: 0 0 10px #00FFFF, 0 0 15px rgba(0, 100, 255, 0.8);
     }
 }
-
-/* Les @keyframes wave-left et wave-right ont été RETIRÉS ICI */
