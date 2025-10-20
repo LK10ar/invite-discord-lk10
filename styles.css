@@ -145,7 +145,7 @@ h1 {
 }
 
 /* --- Compteur de vues (BLOC RETIRÉ) --- */
-/* Le style du compteur a été retiré pour ne pas laisser d'espace vide */
+/* Les styles du compteur ont été retirés pour simplifier */
 
 
 /* --- Contrôle de Volume (Barre de Curseur) --- */
@@ -252,5 +252,62 @@ h1 {
     }
     100% {
         box-shadow: 0 0 10px #00FFFF, 0 0 15px rgba(0, 100, 255, 0.8);
+    }
+}
+
+/* ================================================= */
+/* RESPONSIVE DESIGN (pour écrans <= 600px)         */
+/* ================================================= */
+
+@media (max-width: 600px) {
+    
+    /* --- Contenu Principal --- */
+    .profile-container {
+        /* On retire les padding pour donner plus d'espace */
+        padding: 10px;
+        /* Le contenu reste centré, mais on peut ajuster sa largeur maximale si besoin */
+        max-width: 90%; 
+    }
+    
+    /* --- Photo de Profil --- */
+    .main-profile-picture {
+        /* Réduire la taille de la photo de profil */
+        width: 90px; 
+        height: 90px;
+    }
+    
+    /* --- Titre H1 --- */
+    h1 {
+        /* Réduire la taille du titre */
+        font-size: 1.6em;
+        margin-bottom: 10px;
+    }
+
+    /* --- Bannière Secondaire (Description) --- */
+    .secondary-info-box {
+        /* Réduire l'espacement intérieur */
+        padding: 6px 12px;
+        margin-bottom: 15px;
+    }
+
+    /* --- Icônes de liens sociaux (Discord) --- */
+    .social-links img {
+        /* Réduire légèrement la taille de l'icône */
+        width: 30px;
+        height: 30px;
+        margin: 0 8px;
+    }
+    
+    /* --- Contrôle de Volume --- */
+    #volume-control-wrapper {
+        /* Le placer un peu plus près du bord */
+        top: 15px;
+        left: 15px;
+        padding: 8px;
+    }
+    
+    /* S'assurer que le curseur ne soit pas trop long */
+    #volume-slider {
+        width: 80px; 
     }
 }
