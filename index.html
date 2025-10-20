@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CINÉ LK10</title>
     
-    <link rel="icon" type="image/png" href="assets/images/ciné-lk10-logo-sans-fond.png"> 
+    <link rel="icon" type="image/png" href="images/ciné-lk10-logo-sans-fond.png"> 
     
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
 
     <div id="cover-page">
-        <p>click to enter...</p>
+        <p>click pour entrée...</p>
     </div>
 
     <video autoplay muted loop id="background-video">
-        <source src="edit.mp4" type="video/mp4">
+        <source src="images/edit.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la balise vidéo.
     </video>
     
@@ -26,13 +26,13 @@
     <div class="profile-container">
         
         <div class="main-profile-picture">
-            <img src="assets/images/standard.gif" alt="Photo de Profil">
+            <img src="images/standard.gif" alt="Photo de Profil">
         </div>
         
         <h1>CINÉ LK10</h1>
 
         <div class="secondary-info-box">
-            <img src="assets/images/ciné-lk10-logo-sans-fond.png" alt="Logo/GIF" class="secondary-logo">
+            <img src="images/ciné-lk10-logo-sans-fond.png" alt="Logo/GIF" class="secondary-logo">
             <div class="secondary-text">
                 <span class="secondary-pseudo">CINÉ LK10</span>
                 <span class="secondary-description">OPTÉ PC EN DM! 💻</span>
@@ -41,7 +41,7 @@
         
         <div class="social-links">
             <a href="https://discord.com/tonprofil" target="_blank">
-                <img src="assets/images/icons8-discorde-50.png" alt="Discord">
+                <img src="images/icons8-discorde-50.png" alt="Discord">
             </a>
         </div>
 
@@ -52,13 +52,13 @@
     </div>
 
     <audio id="background-audio" loop muted>
-        <source src="music.m4a" type="audio/mp3">
+        <source src="images/music.m4a" type="audio/mp3">
         Votre navigateur ne supporte pas la balise audio.
     </audio>
     
     <div id="volume-control-wrapper">
         
-        <img id="volume-mute-toggle" src="assets/images/icons8-son-50.png" alt="Contrôle Volume">
+        <img id="volume-mute-toggle" src="images/icons8-son-50.png" alt="Contrôle Volume">
         
         <div id="volume-slider-bar">
              <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
@@ -73,8 +73,8 @@
         const visualizers = document.querySelectorAll('.audio-visualizer'); // Récupère les deux lignes
         
         // Chemins des icônes
-        const ICON_ON = 'assets/images/icons8-son-50.png';
-        const ICON_MUTE = 'assets/images/icons8-mute-50.png';
+        const ICON_ON = 'images/icons8-son-50.png';
+        const ICON_MUTE = 'images/icons8-mute-50.png';
         
         audio.volume = 0.5; 
         let lastVolume = 0.5;
@@ -165,3 +165,4 @@
 </body>
 
 </html>
+
