@@ -147,22 +147,31 @@ h1 {
 /* --- Compteur de vues (BLOC RETIRÉ) --- */
 
 
-/* --- Contrôle de Volume (Barre de Curseur) --- */
+/* ------------------------------------------- */
+/* Contrôle de Volume (Barre de Curseur)       */
+/* NOUVEAU : Application de l'animation neon-glow */
+/* ------------------------------------------- */
 
 #volume-control-wrapper {
     position: fixed;
     top: 20px;
     left: 20px;
     z-index: 100;
+    
     background-color: rgba(50, 50, 50, 0.7); 
     backdrop-filter: blur(8px); 
     border-radius: 12px;
     padding: 10px; 
+    
     display: flex; 
     align-items: center;
     cursor: pointer;
     overflow: visible; 
     transition: width 0.5s, background-color 0.5s; 
+    
+    /* EFFET NÉON AJOUTÉ ICI */
+    box-shadow: 0 0 5px #00FFFF, 0 0 10px rgba(0, 100, 255, 0.5); 
+    animation: neon-glow 2s infinite alternate;
 }
 
 #volume-control-wrapper:hover #volume-slider-bar {
@@ -260,11 +269,9 @@ h1 {
 
 @media (max-width: 600px) {
     
-    /* --- NOUVEAU : Correction de la Vidéo d'Arrière-plan pour le mobile --- */
+    /* --- Correction de la Vidéo d'Arrière-plan pour le mobile --- */
     #background-video {
-        /* Force la hauteur minimale à 100% de la hauteur de la fenêtre */
         min-height: 100vh;
-        /* Assure que la vidéo couvre la zone d'affichage sans laisser de bords */
         object-fit: cover; 
         width: 100vw; 
     }
