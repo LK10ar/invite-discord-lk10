@@ -44,43 +44,7 @@ body {
     object-fit: cover;
 }
 
-/* --- Visualisations Audio (Simulation) --- */
-.audio-visualizer {
-    position: fixed;
-    top: 0;
-    width: 20px; 
-    height: 100vh;
-    z-index: 5; 
-    
-    /* Dessine la ligne ondulée blanche/bleue */
-    background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 0) 0%, 
-        #00FFFF 10%, 
-        rgba(255, 255, 255, 0.8) 50%, 
-        #00FFFF 90%, 
-        rgba(255, 255, 255, 0) 100%
-    );
-    filter: blur(1px); 
-    
-    /* Cacher l'élément par défaut en utilisant l'opacité (CORRECTION) */
-    opacity: 0; 
-    transition: opacity 0.5s ease-out;
-}
-
-/* NOUVELLE CLASSE : Révèle l'élément au clic */
-.audio-visualizer.is-playing {
-    opacity: 0.3; 
-}
-
-.left-line {
-    left: 0;
-    animation: wave-left 4s infinite linear;
-}
-
-.right-line {
-    right: 0;
-    animation: wave-right 4s infinite linear;
-}
+/* Les styles des visualisations audio ont été RETIRÉS ICI */
 
 /* --- Contenu Principal Centré --- */
 .profile-container {
@@ -304,29 +268,4 @@ h1 {
     }
 }
 
-/* NOUVELLE RÈGLE D'ANIMATION : Vagues/Pulse des lignes latérales */
-@keyframes wave-left {
-    0% {
-        transform: scaleY(1);
-    }
-    50% {
-        transform: scaleY(0.98); 
-        filter: blur(2px) drop-shadow(0 0 5px #00FFFF);
-    }
-    100% {
-        transform: scaleY(1);
-    }
-}
-
-@keyframes wave-right {
-    0% {
-        transform: scaleY(1);
-    }
-    50% {
-        transform: scaleY(1.02); 
-        filter: blur(2px) drop-shadow(0 0 5px #00FFFF);
-    }
-    100% {
-        transform: scaleY(1);
-    }
-}
+/* Les @keyframes wave-left et wave-right ont été RETIRÉS ICI */
