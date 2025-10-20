@@ -144,31 +144,9 @@ h1 {
     filter: drop-shadow(0 0 5px #00FFFF) drop-shadow(0 0 10px #00FFFF);
 }
 
-/* --- Compteur de vues (SOLUTION FINALE POUR LE BADGE) --- */
-.view-counter {
-    position: relative; 
-    margin-top: 30px;
-    
-    /* Pour centrer le badge horizontalement */
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    gap: 5px; /* Espacement entre le badge et le label */
-}
+/* --- Compteur de vues (BLOC RETIRÉ) --- */
+/* Le style du compteur a été retiré pour ne pas laisser d'espace vide */
 
-#actual-view-count-badge { /* Cible l'image du compteur */
-    /* Applique l'effet néon à l'image */
-    filter: drop-shadow(0 0 2px #00FFFF) drop-shadow(0 0 5px rgba(0, 100, 255, 0.5)); 
-    
-    height: 20px; 
-}
-
-#badge-label { /* Le nouveau label en texte "Visiteurs" */
-    color: #00FFFF;
-    font-size: 1.1em;
-    text-shadow: 0 0 5px #00FFFF, 0 0 10px rgba(0, 100, 255, 0.8);
-    text-transform: uppercase; /* Rendre le label plus visible */
-}
 
 /* --- Contrôle de Volume (Barre de Curseur) --- */
 
