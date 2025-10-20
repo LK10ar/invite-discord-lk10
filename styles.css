@@ -144,12 +144,12 @@ h1 {
     filter: drop-shadow(0 0 5px #00FFFF) drop-shadow(0 0 10px #00FFFF);
 }
 
-/* --- Compteur de vues (MODIFIÉ POUR LE BADGE) --- */
+/* --- Compteur de vues (BADGE IMAGE) --- */
 .view-counter {
     position: relative; 
     margin-top: 30px;
     
-    /* Pour centrer le badge horizontalement sous les liens */
+    /* Pour centrer le badge horizontalement */
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -159,13 +159,14 @@ h1 {
     /* Applique l'effet néon au badge */
     filter: drop-shadow(0 0 2px #00FFFF) drop-shadow(0 0 5px rgba(0, 100, 255, 0.5)); 
     
-    /* Rendre le badge plus visible / ajuster sa taille si besoin */
     height: 20px; 
     
-    /* Correction de la position pour qu'elle soit sous la zone principale */
-    position: absolute;
-    bottom: -50px;
+    /* Assure que le badge est centré correctement sous le contenu */
+    position: relative; /* Change de absolute à relative */
+    bottom: 0;
     
+    /* Ajustement de la marge pour le centrage visuel */
+    margin-top: 15px;
 }
 
 /* --- Contrôle de Volume (Barre de Curseur) --- */
