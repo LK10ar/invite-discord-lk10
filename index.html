@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINÉ LK10</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/ciné-lk10-logo-sans-fond.png"> 
+    
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <div id="cover-page">
+        <p>click to enter...</p>
+    </div>
+
+    <video autoplay muted loop id="background-video">
+        <source src="c:\Users\leo\Desktop\site lien discord\assets\images\edit.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la balise vidéo.
+    </video>
+    
+    <div class="audio-visualizer left-line"></div>
+    <div class="audio-visualizer right-line"></div>
+
+    <div class="profile-container">
+        
+        <div class="main-profile-picture">
+            <img src="assets/images/standard.gif" alt="Photo de Profil">
+        </div>
+        
+        <h1>CINÉ LK10</h1>
+
+        <div class="secondary-info-box">
+            <img src="assets/images/ciné-lk10-logo-sans-fond.png" alt="Logo/GIF" class="secondary-logo">
+            <div class="secondary-text">
+                <span class="secondary-pseudo">CINÉ LK10</span>
+                <span class="secondary-description">OPTÉ PC EN DM! 💻</span>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://discord.com/tonprofil" target="_blank">
+                <img src="assets/images/icons8-discorde-50.png" alt="Discord">
+            </a>
+        </div>
+
+        <div class="view-counter">
+            <span id="actual-view-count">Chargement...</span> 
+        </div>
+
+    </div>
+
+    <audio id="background-audio" loop muted>
+        <source src="c:\Users\leo\Desktop\site lien discord\assets\images\music.m4a" type="audio/mp3">
+        Votre navigateur ne supporte pas la balise audio.
+    </audio>
+    
+    <div id="volume-control-wrapper">
+        
+        <img id="volume-mute-toggle" src="assets/images/icons8-son-50.png" alt="Contrôle Volume">
+        
+        <div id="volume-slider-bar">
+             <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('background-audio');
+        const coverPage = document.getElementById('cover-page');
+        const volumeMuteToggle = document.getElementById('volume-mute-toggle'); 
+        const volumeSlider = document.getElementById('volume-slider');
+        const visualizers = document.querySelectorAll('.audio-visualizer'); // Récupère les deux lignes
+        
+        // Chemins des icônes
+        const ICON_ON = 'assets/images/icons8-son-50.png';
+        const ICON_MUTE = 'assets/images/icons8-mute-50.png';
+        
+        audio.volume = 0.5; 
+        let lastVolume = 0.5;
+        
+        // **********************************
+        // 1. GESTION DE L'ENTRÉE ET DE L'AUDIO
+        // **********************************
+        
+        function enterPage() {
+            // RENDRE LES LIGNES VISUELLES DE L'AUDIO VISIBLES (via classe CSS)
+            visualizers.forEach(el => {
+                el.classList.add('is-playing');
+            });
+            
+            // 1. Démarrer la musique
+            audio.muted = false; 
+            audio.play().catch(error => {
+                console.log("Échec du lancement audio après le clic.");
+            });
+            
+            // 2. Masquer la page de couverture
+            coverPage.style.opacity = '0';
+            setTimeout(() => {
+                coverPage.style.display = 'none';
+            }, 500);
+
+            coverPage.removeEventListener('click', enterPage);
+            coverPage.removeEventListener('touchstart', enterPage);
+        }
+
+        coverPage.addEventListener('click', enterPage);
+        coverPage.addEventListener('touchstart', enterPage);
+        
+        // **********************************
+        // 2. GESTION DU VOLUME ET DU MUTE
+        // **********************************
+        
+        volumeSlider.addEventListener('input', (e) => {
+            const newVolume = parseFloat(e.target.value);
+            audio.volume = newVolume;
+            
+            audio.muted = false;
+            
+            volumeMuteToggle.src = newVolume > 0 ? ICON_ON : ICON_MUTE;
+            
+            lastVolume = newVolume;
+        });
+
+        volumeMuteToggle.addEventListener('click', () => {
+            if (audio.muted) {
+                audio.volume = lastVolume > 0 ? lastVolume : 0.5;
+                volumeSlider.value = audio.volume;
+                audio.muted = false;
+                volumeMuteToggle.src = ICON_ON;
+            } else {
+                lastVolume = audio.volume; 
+                audio.muted = true;
+                volumeSlider.value = 0;
+                volumeMuteToggle.src = ICON_MUTE;
+            }
+        });
+
+        // **********************************
+        // 3. GESTION DU COMPTEUR DE VUES (API CountAPI)
+        // **********************************
+
+        const uniqueKey = 'ton-projet-unique-compteur-cine-lk10'; 
+        const countApiUrl = `https://api.countapi.xyz/hit/${uniqueKey}/views`;
+        
+        async function updateViewCounter() {
+            const viewCounterElement = document.getElementById('actual-view-count');
+            if (!viewCounterElement) return;
+
+            try {
+                const response = await fetch(countApiUrl);
+                const data = await response.json();
+                
+                viewCounterElement.textContent = `👁️ ${data.value}`; 
+                
+            } catch (error) {
+                console.error('Erreur lors de la mise à jour du compteur de vues:', error);
+                viewCounterElement.textContent = '👁️ Erreur API';
+            }
+        }
+
+        updateViewCounter();
+    </script>
+</body>
+</html>
