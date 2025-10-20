@@ -16,7 +16,7 @@
     </div>
 
     <video autoplay muted loop id="background-video">
-        <source src="images\edit.mp4" type="video/mp4">
+        <source src="images/edit.mp4" type="video/mp4">
         Votre navigateur ne supporte pas la balise vidéo.
     </video>
     
@@ -49,7 +49,7 @@
     </div>
 
     <audio id="background-audio" loop muted>
-        <source src="images\music.m4a" type="audio/mp3">
+        <source src="images/music.m4a" type="audio/mp3">
         Votre navigateur ne supporte pas la balise audio.
     </audio>
     
@@ -67,29 +67,22 @@
         const coverPage = document.getElementById('cover-page');
         const volumeMuteToggle = document.getElementById('volume-mute-toggle'); 
         const volumeSlider = document.getElementById('volume-slider');
-        // Les visualizers ne sont plus nécessaires : const visualizers = document.querySelectorAll('.audio-visualizer');
         
-        // Chemins des icônes
+        // Chemins des icônes JS : CORRIGÉS
         const ICON_ON = 'images/icons8-son-50.png';
         const ICON_MUTE = 'images/icons8-mute-50.png';
         
         audio.volume = 0.5; 
         let lastVolume = 0.5;
         
-        // **********************************
-        // 1. GESTION DE L'ENTRÉE ET DE L'AUDIO
-        // **********************************
+        // ... (Logique d'entrée et de volume inchangée) ...
         
         function enterPage() {
-            // La logique pour les visualizers est RETIRÉE ici
-            
-            // 1. Démarrer la musique
             audio.muted = false; 
             audio.play().catch(error => {
                 console.log("Échec du lancement audio après le clic.");
             });
             
-            // 2. Masquer la page de couverture
             coverPage.style.opacity = '0';
             setTimeout(() => {
                 coverPage.style.display = 'none';
@@ -102,18 +95,12 @@
         coverPage.addEventListener('click', enterPage);
         coverPage.addEventListener('touchstart', enterPage);
         
-        // **********************************
-        // 2. GESTION DU VOLUME ET DU MUTE
-        // **********************************
         
         volumeSlider.addEventListener('input', (e) => {
             const newVolume = parseFloat(e.target.value);
             audio.volume = newVolume;
-            
             audio.muted = false;
-            
             volumeMuteToggle.src = newVolume > 0 ? ICON_ON : ICON_MUTE;
-            
             lastVolume = newVolume;
         });
 
@@ -132,10 +119,11 @@
         });
 
         // **********************************
-        // 3. GESTION DU COMPTEUR DE VUES (API CountAPI)
+        // GESTION DU COMPTEUR DE VUES (API CountAPI)
         // **********************************
 
-        const uniqueKey = 'ton-projet-unique-compteur-cine-lk10'; 
+        // Clé unique (inchangée) :
+        const uniqueKey = 'lk10ar_mtzito_discord_lk10'; 
         const countApiUrl = `https://api.countapi.xyz/hit/${uniqueKey}/views`;
         
         async function updateViewCounter() {
