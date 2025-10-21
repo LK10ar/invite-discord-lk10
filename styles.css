@@ -30,10 +30,7 @@ body {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
-    /* ------------------------------------------------------------------------------------------ */
-    /* NOUVELLE RÈGLE : Utilisation du fichier 'epee.webp' à la racine */
-    cursor: url('epee.webp') 16 16, crosshair; 
-    /* ------------------------------------------------------------------------------------------ */
+    /* RÈGLE DE CURSEUR RETIRÉE ICI POUR ÊTRE DÉFINIE EN BAS AVEC PLUS DE FORCE */
 }
 
 #background-video {
@@ -262,6 +259,24 @@ h1 {
         box-shadow: 0 0 10px #00FFFF, 0 0 15px rgba(0, 100, 255, 0.8);
     }
 }
+
+/* ================================================= */
+/* RÈGLES DE CURSEUR FORTES (APRÈS VÉRIFICATION DE COMPATIBILITÉ) */
+/* ================================================= */
+
+/* 1. Applique le curseur personnalisé (epee.png) à TOUS les éléments */
+/* C'est la solution la plus fiable pour un curseur personnalisé. */
+*, html, body {
+    /* **ASSUREZ-VOUS QUE LE FICHIER 'epee.png' EXISTE ET EST À LA RACINE** */
+    cursor: url('epee.png') 16 16, auto !important;
+}
+
+/* 2. Rétablit le curseur 'pointer' sur les éléments cliquables */
+/* Ceci maintient une bonne expérience utilisateur (l'utilisateur sait où cliquer). */
+a, button, [type="range"], #volume-mute-toggle, #cover-page {
+    cursor: pointer !important; 
+}
+
 
 /* ================================================= */
 /* RESPONSIVE DESIGN (pour écrans <= 600px)          */
