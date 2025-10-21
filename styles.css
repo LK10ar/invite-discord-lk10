@@ -30,6 +30,10 @@ body {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
+    /* ------------------------------------------------------------------------------------------ */
+    /* NOUVELLE RÈGLE : Utilisation de l'image 'pngegg.png' comme curseur, centrée à 16x16 pixels */
+    cursor: url('pngegg.png') 16 16, crosshair; 
+    /* ------------------------------------------------------------------------------------------ */
 }
 
 #background-video {
@@ -260,7 +264,7 @@ h1 {
 }
 
 /* ================================================= */
-/* RESPONSIVE DESIGN (pour écrans <= 600px)         */
+/* RESPONSIVE DESIGN (pour écrans <= 600px)          */
 /* ================================================= */
 
 @media (max-width: 600px) {
