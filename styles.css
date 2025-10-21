@@ -31,8 +31,8 @@ body {
     min-height: 100vh;
     overflow: hidden;
     /* ------------------------------------------------------------------------------------------ */
-    /* NOUVELLE RÈGLE : Utilisation de l'image 'pngegg.png' comme curseur, centrée à 16x16 pixels */
-    cursor: url('images/pngegg.png') 16 16, crosshair; 
+    /* NOUVELLE RÈGLE CORRIGÉE : Le fichier est à la racine, nous retirons 'images/' */
+    cursor: url('pngegg.png') 16 16, crosshair; 
     /* ------------------------------------------------------------------------------------------ */
 }
 
@@ -318,4 +318,3 @@ h1 {
         width: 80px; 
     }
 }
-
