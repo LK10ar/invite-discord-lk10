@@ -30,7 +30,7 @@ body {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
-    /* L'ancienne règle de curseur a été retirée d'ici pour être définie plus bas avec plus de priorité. */
+    /* La règle de curseur est maintenant définie plus bas pour une meilleure priorité. */
 }
 
 #background-video {
