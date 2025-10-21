@@ -265,13 +265,14 @@ h1 {
 /* ================================================= */
 
 /* 1. Applique le curseur personnalisé (epee.png) à TOUS les éléments */
-/* Ceci écrase toutes les autres règles de curseur pour une uniformité maximale. */
+/* Ceci est la solution la plus fiable pour un curseur personnalisé sur GitHub Pages */
 *, html, body {
+    /* Utiliser le format PNG (epee.png) pour une compatibilité maximale */
     cursor: url('epee.png') 16 16, auto !important;
 }
 
 /* 2. Rétablit le curseur 'pointer' sur les éléments cliquables */
-/* Ceci est essentiel pour l'expérience utilisateur. */
+/* Ceci garantit une bonne expérience utilisateur (UX). */
 a, button, [type="range"], #volume-mute-toggle, #cover-page {
     cursor: pointer !important; 
 }
